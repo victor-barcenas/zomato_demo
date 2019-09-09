@@ -20,6 +20,7 @@ class CollectionsVC:UIViewController{
     let restClientB = RESTClient()
     var collections:Array<Collection> = Array()
     var restaurants:Array<Restaurant> = Array()
+    var activiyIndicator:ActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -29,6 +30,8 @@ class CollectionsVC:UIViewController{
         locationNav.locationButton.addTarget(self, action:#selector(showLocations), for: .touchUpInside)
         let barButtonItem = UIBarButtonItem(customView: locationNav)
         self.navigationItem.leftBarButtonItem = barButtonItem
+        activiyIndicator = ActivityIndicatorView(center: self.view.center)
+        activiyIndicator.view.backgroundColor = UIColor(hex: "BA3435")
         getCollections()
     }
     
@@ -37,6 +40,8 @@ class CollectionsVC:UIViewController{
         restClient.requestMethod = .get
         restClient.headers = ["user-key":Constants.apiKey]
         restClient.params = ["city_id":selectedLocation.id] as Dictionary<String, AnyObject>
+        activiyIndicator.startAnimating()
+        self.view.addSubview(activiyIndicator!.getViewActivityIndicator())
         restClient.makeRequest { (response, error) in
             if error != nil{
                 print(error!)
@@ -53,6 +58,7 @@ class CollectionsVC:UIViewController{
         restClient.headers = ["user-key":Constants.apiKey]
         restClient.params = ["entity_id":selectedLocation.id, "entity_type":"city"] as Dictionary<String, AnyObject>
         restClient.makeRequest { (response, error) in
+            self.activiyIndicator.stopAnimating()
             if error != nil{
                 print(error!)
             }else{

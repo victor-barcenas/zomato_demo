@@ -15,6 +15,7 @@ class MainController: UITableViewController, UISearchBarDelegate{
     let restClient = RESTClient()
     var locations:Array<Location> = []
     var selectedLocation:Location!
+    var activiyIndicator:ActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,10 @@ class MainController: UITableViewController, UISearchBarDelegate{
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
         definesPresentationContext = true
-        self.navigationItem.title = "Home"
+        self.navigationItem.title = "Locations"
         self.performSegue(withIdentifier: "pickModal", sender: self)
+        activiyIndicator = ActivityIndicatorView(center: self.view.center)
+        activiyIndicator.view.backgroundColor = UIColor(hex: "BA3435")
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -39,7 +42,10 @@ class MainController: UITableViewController, UISearchBarDelegate{
         restClient.requestMethod = .get
         restClient.headers = ["user-key":Constants.apiKey]
         restClient.params = ["q":searchBar.text] as Dictionary<String, AnyObject>
+        activiyIndicator.startAnimating()
+        self.view.addSubview(activiyIndicator!.getViewActivityIndicator())
         restClient.makeRequest { (response, error) in
+            self.activiyIndicator.stopAnimating()
             if error != nil{
                 print(error!)
             }else{

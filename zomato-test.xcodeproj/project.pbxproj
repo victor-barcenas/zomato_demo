@@ -25,6 +25,7 @@
 		08D468AC232607BA00003DEC /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D468AB232607BA00003DEC /* Review.swift */; };
 		08D468AE2326186800003DEC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D468AD2326186800003DEC /* UIColor.swift */; };
 		08D468B023262AFF00003DEC /* RestaurantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D468AF23262AFF00003DEC /* RestaurantsVC.swift */; };
+		08D468B223263CBB00003DEC /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D468B123263CBB00003DEC /* ActivityIndicatorView.swift */; };
 		08E85642232464FF0019C0EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E85641232464FF0019C0EE /* AppDelegate.swift */; };
 		08E85644232464FF0019C0EE /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E85643232464FF0019C0EE /* MainController.swift */; };
 		08E85647232464FF0019C0EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E85645232464FF0019C0EE /* Main.storyboard */; };
@@ -78,6 +79,7 @@
 		08D468AB232607BA00003DEC /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		08D468AD2326186800003DEC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		08D468AF23262AFF00003DEC /* RestaurantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsVC.swift; sourceTree = "<group>"; };
+		08D468B123263CBB00003DEC /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		08E8563E232464FF0019C0EE /* zomato-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zomato-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08E85641232464FF0019C0EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08E85643232464FF0019C0EE /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		083346332325881A007052CE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				08D468B123263CBB00003DEC /* ActivityIndicatorView.swift */,
 				08D468A02325FC0100003DEC /* RestaurantTableView */,
 				083346342325892D007052CE /* LocationNav */,
 			);
@@ -481,6 +484,7 @@
 				08D468A42325FF4D00003DEC /* RestaurantCell.swift in Sources */,
 				08E85671232465AC0019C0EE /* RESTClient.swift in Sources */,
 				08E856742324660D0019C0EE /* String.swift in Sources */,
+				08D468B223263CBB00003DEC /* ActivityIndicatorView.swift in Sources */,
 				08D4689B2325DB6000003DEC /* AllCollectionsCell.swift in Sources */,
 				08D468A22325FC5300003DEC /* RestaurantTableView.swift in Sources */,
 				08E85642232464FF0019C0EE /* AppDelegate.swift in Sources */,

@@ -16,10 +16,13 @@ class RestaurantsVC:UIViewController{
     var collection:Collection!
     var location:Location!
     var restaurants:Array<Restaurant> = Array()
+    var activiyIndicator:ActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Restaurants"
+        activiyIndicator = ActivityIndicatorView(center: self.view.center)
+        activiyIndicator.view.backgroundColor = UIColor(hex: "BA3435")
         self.getRestaurants()
     }
     
@@ -29,7 +32,10 @@ class RestaurantsVC:UIViewController{
         restClient.headers = ["user-key":Constants.apiKey]
         restClient.params = ["entity_id":location.id, "entity_type":"city",
                              "collection_id":collection.id] as Dictionary<String, AnyObject>
+        activiyIndicator.startAnimating()
+        self.view.addSubview(activiyIndicator!.getViewActivityIndicator())
         restClient.makeRequest { (response, error) in
+            self.activiyIndicator.stopAnimating()
             if error != nil{
                 print(error!)
             }else{
