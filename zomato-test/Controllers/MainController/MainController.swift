@@ -30,6 +30,12 @@ class MainController: UITableViewController, UISearchBarDelegate{
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
         definesPresentationContext = true
+        self.navigationItem.title = "Home"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.performSegue(withIdentifier: "pickModal", sender: self)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -96,5 +102,19 @@ class MainController: UITableViewController, UISearchBarDelegate{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         selectedLocation = locations[indexPath.row]
+        self.performSegue(withIdentifier: "collections", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "collections"{
+            let collectionsVC = segue.destination as! CollectionsVC
+            collectionsVC.selectedLocation = selectedLocation
+            searchController.searchBar.text = ""
+            clearLocations()
+        }else if segue.identifier == "pickModal"{
+            let modal = segue.destination as! PickLocationModal
+            modal.modalPresentationStyle = .overFullScreen
+        }
+        
     }
 }
