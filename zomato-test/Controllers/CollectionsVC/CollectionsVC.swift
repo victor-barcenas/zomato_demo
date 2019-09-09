@@ -125,14 +125,16 @@ extension CollectionsVC:UITableViewDelegate, UITableViewDataSource{
         cell.rating.layer.cornerRadius = 5
         cell.rating.clipsToBounds = true
         let url = URL(string: restaurant.thumb)
-        Alamofire.request(url!, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseImage{ response in
-            if (response.result.value != nil){
-                cell.thumb.image = response.result.value
-                cell.thumb.contentMode = .scaleToFill
-                cell.thumb.layer.cornerRadius = 5
-                cell.thumb.clipsToBounds = true
+        if (url != nil){
+            Alamofire.request(url!, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseImage{ response in
+                if (response.result.value != nil){
+                    cell.thumb.image = response.result.value
+                    cell.thumb.contentMode = .scaleToFill
+                }
             }
         }
+        cell.thumb.layer.cornerRadius = 5
+        cell.thumb.clipsToBounds = true
         return cell
     }
     
