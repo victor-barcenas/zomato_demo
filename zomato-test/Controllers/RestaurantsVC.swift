@@ -17,6 +17,7 @@ class RestaurantsVC:UIViewController{
     var location:Location!
     var restaurants:Array<Restaurant> = Array()
     var activiyIndicator:ActivityIndicatorView!
+    var selectedInex:Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,11 @@ class RestaurantsVC:UIViewController{
             restaurants.append(Restaurant(restaurantDict))
         }
         reusableTableView = ReusableTableView(tableView, restaurants)
-        
+        reusableTableView.parent = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let restDetailVC = segue.destination as! RestaurantDetail
+        restDetailVC.restaurant = restaurants[selectedInex]
     }
 }

@@ -26,6 +26,8 @@
 		08D468AE2326186800003DEC /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D468AD2326186800003DEC /* UIColor.swift */; };
 		08D468B023262AFF00003DEC /* RestaurantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D468AF23262AFF00003DEC /* RestaurantsVC.swift */; };
 		08D468B223263CBB00003DEC /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D468B123263CBB00003DEC /* ActivityIndicatorView.swift */; };
+		08D468B523264E9700003DEC /* RestaurantDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D468B423264E9700003DEC /* RestaurantDetail.swift */; };
+		08D468B723264EF100003DEC /* HighlightsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D468B623264EF100003DEC /* HighlightsCell.swift */; };
 		08E85642232464FF0019C0EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E85641232464FF0019C0EE /* AppDelegate.swift */; };
 		08E85644232464FF0019C0EE /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E85643232464FF0019C0EE /* MainController.swift */; };
 		08E85647232464FF0019C0EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E85645232464FF0019C0EE /* Main.storyboard */; };
@@ -80,6 +82,8 @@
 		08D468AD2326186800003DEC /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		08D468AF23262AFF00003DEC /* RestaurantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsVC.swift; sourceTree = "<group>"; };
 		08D468B123263CBB00003DEC /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		08D468B423264E9700003DEC /* RestaurantDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetail.swift; sourceTree = "<group>"; };
+		08D468B623264EF100003DEC /* HighlightsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightsCell.swift; sourceTree = "<group>"; };
 		08E8563E232464FF0019C0EE /* zomato-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "zomato-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08E85641232464FF0019C0EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08E85643232464FF0019C0EE /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -184,6 +188,15 @@
 				08D468A52326008800003DEC /* RestaurantCell.xib */,
 			);
 			path = RestaurantTableView;
+			sourceTree = "<group>";
+		};
+		08D468B323264E8200003DEC /* RestaurantDetail */ = {
+			isa = PBXGroup;
+			children = (
+				08D468B423264E9700003DEC /* RestaurantDetail.swift */,
+				08D468B623264EF100003DEC /* HighlightsCell.swift */,
+			);
+			path = RestaurantDetail;
 			sourceTree = "<group>";
 		};
 		08E85635232464FF0019C0EE = {
@@ -293,6 +306,7 @@
 		08E856852324B5CF0019C0EE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				08D468B323264E8200003DEC /* RestaurantDetail */,
 				08D468992325DAE300003DEC /* AllCollectionsVC */,
 				08D468902325B9BB00003DEC /* CollectionsVC */,
 				0833463C23259F9C007052CE /* Modals */,
@@ -476,7 +490,9 @@
 				08E85644232464FF0019C0EE /* MainController.swift in Sources */,
 				08D468AA2326062F00003DEC /* UserRating.swift in Sources */,
 				085AC3532325A899008E9215 /* Collection.swift in Sources */,
+				08D468B723264EF100003DEC /* HighlightsCell.swift in Sources */,
 				0833463B23259F40007052CE /* PickLocationModal.swift in Sources */,
+				08D468B523264E9700003DEC /* RestaurantDetail.swift in Sources */,
 				08D468982325DADE00003DEC /* AllCollectionsVC.swift in Sources */,
 				08D468AE2326186800003DEC /* UIColor.swift in Sources */,
 				08D468B023262AFF00003DEC /* RestaurantsVC.swift in Sources */,
@@ -674,6 +690,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "zomato-test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -681,7 +698,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zomato-test.zomato-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -696,6 +713,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "zomato-test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -703,7 +721,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zomato-test.zomato-test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -15,6 +15,7 @@ class CollectionsVC:UIViewController{
     
     var selectedLocation:Location!
     var selectedCollection:Collection!
+    var selectedRestaurant:Restaurant!
     var locationNav:LocationNav!
     let restClient = RESTClient()
     let restClientB = RESTClient()
@@ -150,6 +151,8 @@ extension CollectionsVC:UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1{
+            selectedRestaurant = restaurants[indexPath.row]
+            self.performSegue(withIdentifier: "restDetail", sender: self)
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
@@ -163,11 +166,14 @@ extension CollectionsVC:UITableViewDelegate, UITableViewDataSource{
             let restaurantsVC = segue.destination as! RestaurantsVC
             restaurantsVC.collection = selectedCollection
             restaurantsVC.location = selectedLocation
-        }else{
+        }else if segue.identifier == "collectionDetail"{
             let allCollectionsVC = segue.destination as! AllCollectionsVC
             allCollectionsVC.collections = self.collections
             allCollectionsVC.selectedLocaiton = selectedLocation
             allCollectionsVC.selectedCollection = selectedCollection
+        }else if segue.identifier == "restDetail"{
+            let restDetailVC = segue.destination as! RestaurantDetail
+            restDetailVC.restaurant = selectedRestaurant
         }
     }
 }

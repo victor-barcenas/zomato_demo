@@ -64,8 +64,8 @@ class ResLocation{
         _locality = dictionary.stringFor(key: "locality")
         _city = dictionary.stringFor(key: "city")
         _cityId = dictionary.intFor(key: "city_id")
-        _latitude = dictionary.doubleFor(key: "latitude")
-        _longitude = dictionary.doubleFor(key: "longitude")
+        _latitude = Double(dictionary.stringFor(key: "latitude")!)
+        _longitude = Double(dictionary.stringFor(key: "longitude")!)
         _zipcode = dictionary.stringFor(key: "zipcode")
         _localityVerbose = dictionary.stringFor(key: "locality_verbose")
     }

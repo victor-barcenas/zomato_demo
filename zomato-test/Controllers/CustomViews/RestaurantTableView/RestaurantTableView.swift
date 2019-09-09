@@ -16,6 +16,7 @@ class ReusableTableView: NSObject, UITableViewDataSource, UITableViewDelegate
     var _tableView: UITableView
     var _tableViewData: [Restaurant]
     let _identifier = "restaurantCell"
+    var parent:RestaurantsVC!
     
     init(_ tableView: UITableView, _ data: [Restaurant]){
         _tableViewData = data
@@ -62,5 +63,11 @@ class ReusableTableView: NSObject, UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        parent.selectedInex = indexPath.row
+        parent.performSegue(withIdentifier: "restDetail", sender: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

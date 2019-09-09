@@ -25,6 +25,7 @@ class Restaurant{
     private var _phoneNumbers:String!
     private var _establishment:String!
     private var _location:ResLocation!
+    private var _reviewCount:Int!
     
     var name:String{
         get{return _name}
@@ -101,6 +102,11 @@ class Restaurant{
         set{_location = newValue}
     }
     
+    var reviewCount:Int{
+        get{return _reviewCount}
+        set{_reviewCount = newValue}
+    }
+    
     init(_ dictionary:Dictionary<String,AnyObject>){
         _name = dictionary.stringFor(key: "name")
         _url = dictionary.stringFor(key: "url")
@@ -125,7 +131,7 @@ class Restaurant{
         }else{
             _establishment = ""
         }
-        
+        _reviewCount = dictionary.intFor(key: "all_reviews_count")
         _location = ResLocation(dictionary.dictionaryFor(key: "location")!)
     }
 }
