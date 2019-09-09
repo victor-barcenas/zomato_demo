@@ -31,10 +31,6 @@ class MainController: UITableViewController, UISearchBarDelegate{
         searchController.searchBar.delegate = self
         definesPresentationContext = true
         self.navigationItem.title = "Home"
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         self.performSegue(withIdentifier: "pickModal", sender: self)
     }
     
